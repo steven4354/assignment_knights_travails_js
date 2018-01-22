@@ -41,3 +41,49 @@ Do not go gentle into that good knight.
 3. Repeat process until the stack is empty.
 
 ---
+
+# Knight's Travails Pseudocode
+
+```
+class KnightMove {
+  constructor(x, y, depth, children = [], parent = null){
+    this.x = x
+    this.y = y
+    this.depth = depth
+    this.children = children
+    this.parent = parent
+  }
+}
+
+class MoveTree {
+  constructor(x, y, maxDepth = 1){
+    this.begin = new KnightMove(x, y, maxDepth)
+    this.maxDepth = maxDepth
+    this.moves = []
+  }
+
+  possibleMoves(){
+
+    this.moves.push(
+      new KnightMove(this.begin.x + 2, this.begin.y + 1, 1, [] , this.begin),
+
+      new KnightMove(this.begin.x + 1, this.begin.y + 2, 1, [] , this.begin),
+
+      new KnightMove(this.begin.x - 2, this.begin.y + 1, 1, [] , this.begin),
+
+      new KnightMove(this.begin.x - 1, this.begin.y + 2, 1, [] , this.begin),
+
+      new KnightMove(this.begin.x - 2, this.begin.y - 1, 1, [] , this.begin),
+
+      new KnightMove(this.begin.x - 1, this.begin.y - 2, 1, [] , this.begin),
+
+      new KnightMove(this.begin.x + 1, this.begin.y - 2, 1, [] , this.begin),
+
+      new KnightMove(this.begin.x + 2, this.begin.y - 1, 1, [] , this.begin),
+    )
+
+  }
+}
+```
+
+# Part I: Tree Builder
